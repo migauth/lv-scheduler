@@ -3,12 +3,13 @@
 </script>
 
 <template>
-  <h1>To do list component</h1>
-  <div class="border flex flex-col h-screen">
-    test
-  </div>
+  <h1 class="text-4xl">To do list component</h1>
+
 </template>
 
 <style scoped>
-
+  li {
+    font-size: 2em;
+    border: solid white;
+  }
 </style>
