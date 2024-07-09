@@ -1,12 +1,21 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, ref } from 'vue'
+import { siteStyles } from './state.js'
+import ToDoList from './components/ToDoList.vue';
+
+const siteClass = computed(() => {
+  return `${siteStyles.value.padding} ${siteStyles.value.border} ${siteStyles.value.text} ${siteStyles.value.background} ${siteStyles.value.layout}`
+})
+
 </script>
 
 <template>
-  <main>
-    <div class="m-auto">
-      lv scheduler
-    </div>
+  <main :class="siteClass">
+    
+    <header class="  border text-6xl">
+      LV Scheduler
+    </header>
+    <ToDoList/>
   </main>
 </template>
 
