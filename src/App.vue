@@ -57,14 +57,14 @@ onMounted(() => {
         <button
         @click="toggleColorOptions"
         :class="buttonClass"
-        class="rounded-md p-2 text-3xl sm:text-2xl mb-3 mr-0 sm:mr-3 w-full sm:w-auto"
+        class="rounded-md p-2 text-3xl sm:text-2xl mb-3 mr-0 sm:mr-3 w-full sm:w-auto "
       >
         <i class="fa-solid fa-caret-down" /> Color Options
       </button>
     <div v-if="showColorOptions" class="z-10 flex flex-wrap p-0 mb-4 animate-flip-down">
       <StyleButton></StyleButton>
     </div>
-      <div class="text-3xl border  w-96">
+      <div class="text-4xl border  w-96">
         {{ dayOfWeek }}, {{ month }} {{ dayOfMonth }} - {{ currentTime }}
       </div>
     </div>
