@@ -1,22 +1,33 @@
 <script setup>
 import { computed, reactive, watch, defineEmits } from 'vue'
 
-const post = () => {
-  console.log(searchTerm.query);
-}
-
-const searchTerm = reactive({
+// Reactive object query - https://vuejs.org/guide/essentials/reactivity-fundamentals.html
+const inputTerm = reactive({
   query: ''
 })
 
-const emit = defineEmits(['update:query'])
-
-watch(searchTerm, (newVal) => {
-  emit('update:query', newVal.query)
+const toDoContent = reactive({
+  content: ''
 })
 
+// This function will take the data from input and post it to the list
+const post = (text) => {
+  console.log(inputTerm.query);
+  if (text) {
+    toDoContent.content = inputTerm.query
+  }
+}
+
+// const emit = defineEmits(['update:query'])
+
+// watch(inputTerm, (newVal) => {
+//   emit('update:query', newVal.query)
+// })
+
+// Clears the input field
+
 const clearInput = () => {
-  searchTerm.query = ''
+  inputTerm.query = ''
 }
 </script>
 
@@ -25,11 +36,13 @@ const clearInput = () => {
   <div class="border flex">
     <form @submit.prevent>
       <div class="w-full">
-        <input id="textInput" type="text" placeholder="Type here" class=" bg-transparent" v-model="searchTerm.query" />
+        <input id="textInput" type="text" placeholder="Type here" class=" bg-transparent" v-model="inputTerm.query" />
       </div>
     </form>
-    <button @click="post" ><i class="fa-solid fa-plus"></i></button>
-    
+    <button @click="post(inputTerm.query)" ><i class="fa-solid fa-plus"></i></button>
+  </div>
+  <div >
+    {{ toDoContent.content }}
   </div>
 </template>
 
