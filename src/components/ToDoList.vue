@@ -1,30 +1,21 @@
 <script setup>
-import { computed, reactive, watch, defineEmits } from 'vue'
+import { reactive, ref } from 'vue'
 
 // Reactive object query - https://vuejs.org/guide/essentials/reactivity-fundamentals.html
 const inputTerm = reactive({
   query: ''
 })
 
-const toDoContent = reactive({
-  content: ''
-})
+// Reactive array to hold the list of to-do items
+const toDoList = ref([])
 
 // This function will take the data from input and post it to the list
-const post = (text) => {
-  console.log(inputTerm.query);
-  if (text) {
-    toDoContent.content = inputTerm.query
+const addToList = () => {
+  if (inputTerm.query) {
+    toDoList.value.push(inputTerm.query)
+    clearInput()
   }
 }
-
-// const emit = defineEmits(['update:query'])
-
-// watch(inputTerm, (newVal) => {
-//   emit('update:query', newVal.query)
-// })
-
-// Clears the input field
 
 const clearInput = () => {
   inputTerm.query = ''
@@ -39,11 +30,13 @@ const clearInput = () => {
         <input id="textInput" type="text" placeholder="Type here" class=" bg-transparent" v-model="inputTerm.query" />
       </div>
     </form>
-    <button @click="post(inputTerm.query)" ><i class="fa-solid fa-plus"></i></button>
+    <button @click="addToList" ><i class="fa-solid fa-plus"></i></button>
   </div>
-  <div >
-    {{ toDoContent.content }}
-  </div>
+  <ul>
+    <li v-for="(item, index) in toDoList" :key="index">
+      {{ item }}
+    </li>
+  </ul>
 </template>
 
 <style scoped>
