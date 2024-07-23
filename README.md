@@ -1,5 +1,38 @@
-# Vue 3 + Vite
+# LV Scheduler
+<!-- !["screenshot"](https://github.com/migauth/braille-translator/blob/main/public/screenshot2.png?raw=true) -->
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A basic to do list app.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Six colour options for vision accessability needs
+
+<!-- !["colours"](https://github.com/migauth/braille-translator/blob/main/public/colours.png?raw=true) -->
+
+## Stack
+
+Vue, JavaScript, Tailwind
+
+## Install dependencies
+
+```sh
+npm install
+```
+
+Follow instructions on [Tailwind website](https://tailwindcss.com/docs/guides/vite) for tailwind installation with Vue
+
+Font awesome
+
+```sh
+npm install @fortawesome/fontawesome-free
+```
+
+Tailwind css animated
+
+```sh
+npm i tailwindcss-animated
+```
+
+### Run Server
+
+```sh
+npm run dev
+```

@@ -70,7 +70,7 @@ onMounted(() => {
         {{ dayOfWeek }}, {{ month }} {{ dayOfMonth }} - {{ currentTime }}
       </div>
     </div>
-    <div class="flex-1 border p-4">
+    <div class="flex-1 p-4">
       <ToDoList />
     </div>
   </main>

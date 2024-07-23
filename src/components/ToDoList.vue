@@ -48,7 +48,7 @@ const inputClass = computed(() => {
         <input id="textInput" type="text" placeholder="Type here" v-model="inputTerm.query" :class="inputClass" />
       </div>
     </form>
-    <button @click="addToList" ><i class="fa-solid fa-plus"></i></button>
+    <button @click="addToList" ><i class="fa-solid fa-plus text-4xl hover:animate-bounce"></i></button>
   </div>
 
 </template>
