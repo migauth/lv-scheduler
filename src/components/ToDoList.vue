@@ -17,6 +17,10 @@ const addToList = () => {
   }
 }
 
+const removeFromList = (index) => {
+  toDoList.value.splice(index, 1)
+}
+
 const clearInput = () => {
   inputTerm.query = ''
 }
@@ -34,7 +38,13 @@ const clearInput = () => {
   </div>
   <ul>
     <li v-for="(item, index) in toDoList" :key="index">
-      {{ item }}
+      <div>
+        {{ item }}
+        <button @click="removeFromList(index)" class="border">remove</button>
+
+      </div>
+
+
     </li>
   </ul>
 </template>
