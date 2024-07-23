@@ -27,26 +27,25 @@ const clearInput = () => {
 </script>
 
 <template>
-  <h1 class="text-4xl">To do list component</h1>
-  <div class="border flex">
-    <form @submit.prevent>
-      <div class="w-full">
-        <input id="textInput" type="text" placeholder="Type here" class=" bg-transparent" v-model="inputTerm.query" />
-      </div>
-    </form>
-    <button @click="addToList" ><i class="fa-solid fa-plus"></i></button>
-  </div>
+  <h1 class="text-4xl mb-3">Today's to do list:</h1>
   <ul>
     <li v-for="(item, index) in toDoList" :key="index">
       <div>
         {{ item }}
         <button @click="removeFromList(index)" class="border">remove</button>
-
       </div>
-
-
     </li>
   </ul>
+  <div class="flex">
+  
+    <form @submit.prevent class="flex-grow">
+      <div class="w-full">
+        <input id="textInput" type="text" placeholder="Type here" class="bg-transparent w-3/4 text-4xl" v-model="inputTerm.query" />
+      </div>
+    </form>
+    <button @click="addToList" ><i class="fa-solid fa-plus"></i></button>
+  </div>
+
 </template>
 
 <style scoped>
