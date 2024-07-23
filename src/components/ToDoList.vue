@@ -1,5 +1,6 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
+import { inputStyles } from '../state';
 
 // Reactive object query - https://vuejs.org/guide/essentials/reactivity-fundamentals.html
 const inputTerm = reactive({
@@ -24,6 +25,10 @@ const removeFromList = (index) => {
 const clearInput = () => {
   inputTerm.query = ''
 }
+
+const inputClass = computed(() => {
+  return `${inputStyles.value.width} ${inputStyles.value.border} ${inputStyles.value.background} ${inputStyles.value.rounded} ${inputStyles.value.placeholder} ${inputStyles.value.text} ${inputStyles.value.padding}`
+})
 </script>
 
 <template>
@@ -40,7 +45,7 @@ const clearInput = () => {
   
     <form @submit.prevent class="flex-grow">
       <div class="w-full">
-        <input id="textInput" type="text" placeholder="Type here" class="bg-transparent w-3/4 text-4xl" v-model="inputTerm.query" />
+        <input id="textInput" type="text" placeholder="Type here" v-model="inputTerm.query" :class="inputClass" />
       </div>
     </form>
     <button @click="addToList" ><i class="fa-solid fa-plus"></i></button>
