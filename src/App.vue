@@ -23,6 +23,10 @@ const buttonClass = computed(() => {
   return `${siteStyles.value.border} ${siteStyles.value.text} ${siteStyles.value.text} ${siteStyles.value.padding}`
 })
 
+const containerClass = computed(() => {
+  return `${siteStyles.value.border} ${siteStyles.value.text} ${siteStyles.value.text} ${siteStyles.value.padding}`
+})
+
 // Date stuff
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -49,22 +53,20 @@ onMounted(() => {
 
 <template>
   <main :class="siteClass" class="flex flex-col min-h-screen">
-    <header :class="buttonClass" class="border text-6xl p-4">
+    <header :class="containerClass" class="border text-6xl p-4">
       LV Scheduler
     </header>
     <div class="flex  justify-between mt-3 ">
-        <!-- Colour buttons -->
-        <button
-        @click="toggleColorOptions"
-        :class="buttonClass"
-        class="rounded-md p-2 text-3xl sm:text-2xl mb-3 mr-0 sm:mr-3 w-full sm:w-auto "
-      >
+      <!-- Colour buttons -->
+      <button @click="toggleColorOptions" :class="buttonClass"
+        class="rounded-md p-2 text-3xl sm:text-2xl mb-3 mr-0 sm:mr-3 w-full sm:w-auto ">
         <i class="fa-solid fa-caret-down" /> Color Options
       </button>
-    <div v-if="showColorOptions" class="z-10 flex flex-wrap p-0 mb-4 animate-flip-down">
-      <StyleButton></StyleButton>
-    </div>
-      <div class="text-4xl border  w-96">
+      <div v-if="showColorOptions" class="z-10 flex flex-wrap p-0 mb-4 animate-flip-down">
+        <StyleButton></StyleButton>
+      </div>
+      <!-- Clock -->
+      <div v-if="!showColorOptions" class="text-6xl border  w-full" :class="containerClass">
         {{ dayOfWeek }}, {{ month }} {{ dayOfMonth }} - {{ currentTime }}
       </div>
     </div>
