@@ -42,15 +42,13 @@ const inputClass = computed(() => {
     </li>
   </ul>
   <div class="flex">
-  
-    <form @submit.prevent class="flex-grow">
-      <div class="w-full">
-        <input id="textInput" type="text" placeholder="Type here" v-model="inputTerm.query" :class="inputClass" />
-      </div>
+    <div class="flex-shrink-0">
+      <button @click="addToList" class="border rounded px-2 py-1 mr-2">Add item<i class="fa-solid fa-plus text-4xl hover:animate-bounce"></i></button>
+    </div>
+    <form @submit.prevent class="flex-grow ml-2">
+        <input id="textInput" type="text" placeholder="Type here" v-model="inputTerm.query" :class="inputClass"/>
     </form>
-    <button @click="addToList" ><i class="fa-solid fa-plus text-4xl hover:animate-bounce"></i></button>
   </div>
-
 </template>
 
 <style scoped>
