@@ -35,15 +35,18 @@ const inputClass = computed(() => {
   <h1 class="text-4xl mb-3">Today's to do list:</h1>
   <ul>
     <li v-for="(item, index) in toDoList" :key="index">
-      <div>
-        {{ item }}
-        <button @click="removeFromList(index)" class="border">remove</button>
+      <div class="flex mb-4">
+        <button @click="removeFromList(index)" class="border rounded w-32 mr-4">remove</button>
+        <div class="border w-full pl-2">
+          •
+          {{ item }}
+        </div>
       </div>
     </li>
   </ul>
   <div class="flex">
     <div class="flex-shrink-0">
-      <button @click="addToList" class="border rounded px-2 py-1 mr-2">Add item<i class="fa-solid fa-plus text-4xl hover:animate-bounce"></i></button>
+      <button @click="addToList" class="border rounded px-2 py-1 mr-2  w-32">Add item<i class="fa-solid fa-plus text-4xl hover:animate-bounce"></i></button>
     </div>
     <form @submit.prevent class="flex-grow ml-2">
         <input id="textInput" type="text" placeholder="Type here" v-model="inputTerm.query" :class="inputClass"/>
@@ -54,6 +57,6 @@ const inputClass = computed(() => {
 <style scoped>
 li {
   font-size: 2em;
-  border: solid white;
+
 }
 </style>
