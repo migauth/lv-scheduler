@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, computed } from 'vue'
+import { reactive, ref, computed, onMounted, watch } from 'vue'
 import { inputStyles } from '../state';
 
 // Reactive object query - https://vuejs.org/guide/essentials/reactivity-fundamentals.html
@@ -9,6 +9,19 @@ const inputTerm = reactive({
 
 // Reactive array to hold the list of to-do items
 const toDoList = ref([])
+
+// Load to-do list from localStorage on mount
+onMounted(() => {
+  const savedToDoList = localStorage.getItem('toDoList')
+  if (savedToDoList) {
+    toDoList.value = JSON.parse(savedToDoList)
+  }
+})
+
+// Watch toDoList and save changes to localStorage
+watch(toDoList, (newList) => {
+  localStorage.setItem('toDoList', JSON.stringify(newList))
+}, { deep: true })
 
 // This function will take the data from input and post it to the list
 const addToList = () => {
@@ -36,9 +49,9 @@ const inputClass = computed(() => {
   <ul>
     <li v-for="(item, index) in toDoList" :key="index">
       <div class="flex mb-4">
-        <button @click="removeFromList(index)" class="border rounded w-32 mr-4">remove</button>
+        <button @click="removeFromList(index)" class="border rounded w-32 mr-4"><div class="hover:animate-bounce">remove</div></button>
         <div class="border w-full pl-2">
-          •
+          ⦾
           {{ item }}
         </div>
       </div>
