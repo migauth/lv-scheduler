@@ -66,7 +66,7 @@ onMounted(() => {
         <StyleButton></StyleButton>
       </div>
       <!-- Clock -->
-      <div v-if="!showColorOptions" class="sm:text-4xl lg:text-6xl border w-full" :class="containerClass">
+      <div v-if="!showColorOptions" class="text-2xl sm:text-4xl lg:text-6xl border w-full" :class="containerClass">
         {{ dayOfWeek }}, {{ month }} {{ dayOfMonth }} - {{ currentTime }}
       </div>
     </div>
