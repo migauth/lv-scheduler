@@ -13,6 +13,7 @@ const toDoList = ref([])
 // Load to-do list from localStorage on mount
 onMounted(() => {
   const savedToDoList = localStorage.getItem('toDoList')
+  console.log(savedToDoList);
   if (savedToDoList) {
     toDoList.value = JSON.parse(savedToDoList)
   }

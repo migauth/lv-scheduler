@@ -52,11 +52,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <main :class="siteClass" class="flex flex-col min-h-screen">
+  <main :class="siteClass" class="flex flex-col min-h-screen p-4">
     <header :class="containerClass" class="border text-6xl p-4">
       LV Scheduler
     </header>
-    <div class="flex  justify-between mt-3 ">
+    <div class="flex flex-col sm:flex-row justify-between mt-3 space-y-3 sm:space-y-0">
       <!-- Colour buttons -->
       <button @click="toggleColorOptions" :class="buttonClass"
         class="rounded-md p-2 text-3xl sm:text-2xl mb-3 mr-0 sm:mr-3 w-full sm:w-auto ">
@@ -66,7 +66,7 @@ onMounted(() => {
         <StyleButton></StyleButton>
       </div>
       <!-- Clock -->
-      <div v-if="!showColorOptions" class="text-6xl border  w-full" :class="containerClass">
+      <div v-if="!showColorOptions" class="sm:text-4xl lg:text-6xl border w-full" :class="containerClass">
         {{ dayOfWeek }}, {{ month }} {{ dayOfMonth }} - {{ currentTime }}
       </div>
     </div>
